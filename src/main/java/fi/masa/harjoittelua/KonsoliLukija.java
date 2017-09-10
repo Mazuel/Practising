@@ -9,7 +9,7 @@ public class KonsoliLukija {
 		scan = new Scanner(System.in);
 	}
 	
-	public String lue() {
+	public String read() {
 		return scan.nextLine();
 	}
 

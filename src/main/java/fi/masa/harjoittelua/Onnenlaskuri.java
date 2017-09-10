@@ -11,13 +11,13 @@ public class Onnenlaskuri {
 		int onnennumero = -1;
 		double onnenkerroin = 0;
 		System.out.println("Hei! Haluatko tietää onnennumerosi? (kyllä tai ei)");
-		String vastaus = consoleIn.lue();
+		String vastaus = consoleIn.read();
 
 		if (vastaus.equals("kyllä")) {
 			System.out.println("Kerro pituutesi");
-			int pituus = Integer.parseInt(consoleIn.lue());
+			int pituus = Integer.parseInt(consoleIn.read());
 			System.out.println("Kerro painosi");
-			int paino = Integer.parseInt(consoleIn.lue());
+			int paino = Integer.parseInt(consoleIn.read());
 			onnennumero = (pituus * paino) / 21;
 			onnenkerroin = onnennumero / 3.14;
 //			System.out.println("Onnennumerosi on: " + onnennumero);

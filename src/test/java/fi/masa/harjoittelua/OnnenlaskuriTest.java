@@ -18,7 +18,7 @@ public class OnnenlaskuriTest {
 
 	@Test
 	public void shouldReturnCorrectLuckyNumber() {
-		when(lukija.lue()).thenReturn("kyllä", "7", "3");
+		when(lukija.read()).thenReturn("kyllä", "7", "3");
 		String onnennumero = onnenLaskuri.laskeNumero(lukija);
 		assertThat(onnennumero).isEqualTo("Onnennumerosi on 1 ja onnenkerroin on 0.3184713375796178");
 	}
@@ -27,7 +27,7 @@ public class OnnenlaskuriTest {
 	
 	@Test
 	public void vastausei() {
-		when(lukija.lue()).thenReturn("ei");
+		when(lukija.read()).thenReturn("ei");
 		String onnennumero = onnenLaskuri.laskeNumero(lukija);
 		assertThat(onnennumero).isEqualTo("Onnennumerosi on -1 ja onnenkerroin on 0.0");
 	}
