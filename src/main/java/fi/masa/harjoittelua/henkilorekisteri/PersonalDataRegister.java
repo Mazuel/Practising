@@ -17,10 +17,10 @@ public class PersonalDataRegister {
         linklist.add(new Person("Keijo", "Hessulaaksontie", 5300, 53));
         linklist.add(new Person("Gilbert", "Raitislaaksonkatu 3", 9330, 26));
         linklist.add(new Person("Mäyrä", "Ränkitie 10 B A", 100000, 7));
-        while (!"5".equalsIgnoreCase(answer)) {
+        while (!"6".equalsIgnoreCase(answer)) {
             menu.showMenu();
             answer = scan.nextLine();
-            if (answer.equalsIgnoreCase("1")) {
+            if (menu.addPerson(answer)) {
                 try {
                     Person a1 = personManager.addName();
                     linklist.add(a1);
@@ -29,7 +29,7 @@ public class PersonalDataRegister {
                     System.out.println("You must insert a number!");
                 }
 
-            } else if (answer.equalsIgnoreCase("2")) {
+            } else if (menu.removePerson(answer)) {
                 int id = personManager.removeName();
                 if (id <= linklist.size()) {
                     linklist.remove(id);
@@ -38,16 +38,27 @@ public class PersonalDataRegister {
                 }
 
             } else if (menu.printSelected(answer)) {
+                System.out.print("Enter a letter you want to search for: ");
+                String letter = scan.nextLine();
                 for (Person person : linklist) {
-                    System.out.println(person.getName());
-                    
+                    if (person.getName().contains(letter)) {
+                        System.out.println(person.getName());
+                    }
                 }
-            } else if (answer.equalsIgnoreCase("4")) {
+            } else if (menu.calculateAllWages(answer)) {
+                int totalWage = 0;
+                for (Person person : linklist) {
+                    person.getWage();
+                    totalWage += person.getWage();
+                }
+                System.out.println("Total wage costs: " + totalWage + " euros.");
+
+            } else if (menu.printAll(answer)) {
                 linklist.stream().forEach(System.out::println);
-            } else if (answer.equalsIgnoreCase("5")) {
+            } else if (answer.equalsIgnoreCase("6")) {
                 System.out.println("Goodbye");
             } else {
-                System.out.println("Unknown command, enter a number 1-5");
+                System.out.println("Unknown command, enter a number 1-6");
             }
 
         }

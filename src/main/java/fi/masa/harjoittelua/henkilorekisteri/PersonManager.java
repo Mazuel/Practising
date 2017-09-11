@@ -27,9 +27,9 @@ public class PersonManager {
     public int removeName() {
         while (true) {
 
-            System.out.println("Enter the id of the person you want to remove: ");
+            System.out.print("Enter the id of the person you want to remove: ");
             int id = Integer.parseInt(reader.read());
-            System.out.println("Are you sure you want to remove id: " + id + "?");
+            System.out.print("Are you sure you want to remove id: " + id + "?");
             String answer2 = reader.read();
             if (answer2.equalsIgnoreCase("yes")) {
                 return id;
