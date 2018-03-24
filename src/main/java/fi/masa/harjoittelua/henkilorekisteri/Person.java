@@ -75,4 +75,7 @@ public class Person {
     public String toString() {
         return String.join(" : ", "Name: " + name, "Age: " + age, "ID: " + id, "Address: " + address, "Wage: " + wage);
     }
+    public boolean equals(Object another) {
+        return this.getName().equalsIgnoreCase(((Person)another).getName());
+    }
 }

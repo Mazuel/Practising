@@ -13,7 +13,7 @@ public class Harjoitus4 {
 			int d = scan.nextInt();
 
 			a = a + d;
-			c = c - 1;
+			c--;
 
 		}
 		if (b == 0) {
